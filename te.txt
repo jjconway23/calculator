@@ -1,0 +1,87 @@
+First Edition only could calculate 2 numbers
+
+zero.addEventListener("click", ()=> {
+  resultBox.innerText += 0;
+})
+one.addEventListener("click", () => {
+  resultBox.innerText+= 1;
+})
+two.addEventListener("click", () => {
+  resultBox.innerText+= 2;
+})
+three.addEventListener("click", () => {
+  resultBox.innerText+= 3;
+})
+four.addEventListener("click", () => {
+  resultBox.innerText+= 4;
+})
+five.addEventListener("click", () => {
+  resultBox.innerText+= 5;
+})
+six.addEventListener("click", () => {
+  resultBox.innerText+= 6;
+})
+seven.addEventListener("click", () => {
+  resultBox.innerText+= 7;
+})
+eight.addEventListener("click", () => {
+  resultBox.innerText+= 8;
+})
+nine.addEventListener("click", () => {
+  resultBox.innerText+= 9;
+})
+function clearResultsBox (){
+  resultBox.innerText = "";
+  
+}
+cancel.addEventListener("click", ()=> {
+  clearResultsBox()
+})
+dot.addEventListener("click", ()=> {
+  resultBox.innerText +=".";
+})
+function addToResultsBox (opp) {
+  num1 = resultBox.innerText;
+  sumDetails.innerText = `${num1} ${opp}`
+  clearResultsBox()
+}
+plus.addEventListener("click", ()=> {
+  addToResultsBox("+")
+  
+})
+subtract.addEventListener("click", ()=> {
+    addToResultsBox("-")
+    
+  })
+  divide.addEventListener("click", ()=> {
+    addToResultsBox("/")
+    
+  })
+  multiply.addEventListener("click", ()=> {
+    addToResultsBox("x")
+    
+  })
+equals.addEventListener("click", ()=> {
+  calculateSum()
+  setTimeout(()=>{
+        sumDetails.innerText += " = " + resultBox.innerText
+        resultBox.innerText = "";
+         },3000)
+
+})
+function calculateSum(opp){
+  num2 = resultBox.innerText;
+  sumDetails.innerText += ` ${num2} `
+  clearResultsBox()
+//   
+if(sumDetails.innerText.includes("+") ){
+    return resultBox.innerText= Number(num1) + Number(num2)
+  }else if (sumDetails.innerText.includes("-") ){
+    return resultBox.innerText= Number(num1) - Number(num2)
+  }else if (sumDetails.innerText.includes("/") ){
+    return resultBox.innerText= Number(num1) / Number(num2)
+  }else if (sumDetails.innerText.includes("x") ){
+    return resultBox.innerText= Number(num1) * Number(num2)
+  }
+  
+}
