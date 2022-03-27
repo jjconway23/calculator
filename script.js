@@ -52,6 +52,4 @@ equals.addEventListener("click", ()=> {
   }
   
 })
-equations.forEach( equation => {
-  ul.append(`<li>${equation}</li>`)
-})
+

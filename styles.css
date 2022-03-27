@@ -1,8 +1,9 @@
 html{
-    font-size: 62.5%
+    font-size: 62.5%;
   }
   body{
-    font-size: 1.6rem
+    font-size: 1.6rem;
+    padding: 3rem 3rem 1rem;
   }
   *{
     padding:0;
@@ -51,14 +52,28 @@ html{
   }
   .sum-details{
     background: #f8f8f8;
-    height:200px;
-    width:200px;
+    min-height:200px;
+    min-width:200px;
     border: solid;
     border-radius: 3px;
     color: blue;
+    text-align: left;
+    height: fit-content;
+    width: fit-content;
+    padding: 1rem 2rem;
+  }
+  h1{
     text-align: center;
   }
-  h1,p{
-    text-align: center;
+  .current-sum{
+    margin-top:1rem;
   }
- 
+  #sum-history{
+    margin-top: 2.4rem;
+    list-style: none;
+
+
+  }
+  #sum-history li {
+    margin: .2rem 0;
+  }
