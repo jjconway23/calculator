@@ -1,4 +1,4 @@
-First Edition only could calculate 2 numbers
+First Edition only could calculate 2 numbers. Refactored code and can now take multiple numbers and multiple operators
 
 zero.addEventListener("click", ()=> {
   resultBox.innerText += 0;

@@ -8,9 +8,10 @@ const multiply = document.querySelector(".times")
 const divide = document.querySelector(".divide")
 const equals = document.querySelector(".equals")
 let resultBox = document.querySelector("#input-box")
-const sumDetails = document.querySelector(".sum-details")
+const currentSum = document.querySelector(".current-sum")
 const deleteBtn = document.querySelector(".delete")
-let equation
+let ul = document.querySelector("#sum-history")
+let equations = [];
 
 numberBtns.forEach( btn => {
   btn.addEventListener("click", (e) => {
@@ -22,17 +23,17 @@ operands.forEach( op => {
   op.addEventListener("click", (e)=> {
       sumQuestion.push(resultBox.innerText, e.target.innerText.toString())
       resultBox.innerText = "";
-      sumDetails.innerText = sumQuestion.join(" ")
+      currentSum.innerText = sumQuestion.join(" ")
   })
 })
 cancel.addEventListener("click", () =>{
     resultBox.innerText ="";
     sumQuestion.length = 0;
-    sumDetails.innerText = "";
+    currentSum.innerText = "";
 })
 deleteBtn.addEventListener("click", () => {
     sumQuestion.pop()
-    sumDetails.innerText = sumQuestion
+    currentSum.innerText = sumQuestion
 })
 equals.addEventListener("click", ()=> {
 
@@ -40,9 +41,17 @@ equals.addEventListener("click", ()=> {
     return
   }else{
     sumQuestion.push(resultBox.innerText)
-    sumDetails.innerText = sumQuestion.join(" ")
+    currentSum.innerText = sumQuestion.join(" ")
+    equations.push(sumQuestion.join(" ") + " = " + eval(sumQuestion.join(" ")))
+    equations.forEach( equation => {
+      ul.innerHTML+= `<li>${equation}</li>`
+      equations.shift()
+    })
+    sumQuestion.shift()
     return resultBox.innerText = eval(sumQuestion.join(" "))
   }
   
 })
-
+equations.forEach( equation => {
+  ul.append(`<li>${equation}</li>`)
+})
